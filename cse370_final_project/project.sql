@@ -51,7 +51,7 @@ CREATE TABLE registrations (
     event_id INT NOT NULL,
     rating INT,
     comments TEXT,
-    status ENUM('registered', 'waitlisted', 'cancelled') DEFAULT 'registered',
+    status ENUM('registered', 'waitlisted') DEFAULT 'registered',
     FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE,
     FOREIGN KEY (event_id) REFERENCES events(event_id) ON DELETE CASCADE
 );
@@ -83,3 +83,4 @@ CREATE TABLE notifications (
     FOREIGN KEY (admin_id) REFERENCES admin(user_id) ON DELETE SET NULL,
     FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
 );
+
